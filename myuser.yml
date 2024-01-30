@@ -1,0 +1,27 @@
+---
+- name: user
+  hosts: db
+  tasks: 
+    - name: install pip
+      command: yum install pip
+
+    - name: install PyMySQL
+      pip:
+        name: PyMySQL
+        executable: pip3
+
+    - name: start myswl
+      service:
+        name: mysqld
+        state: started
+        enabled: yes
+
+    - name: Create MySQL user
+      mysql_user:
+        name: akhila
+        password: 'asd'
+        priv: '*.*:ALL'
+        state: present
+        login_unix_socket: /var/lib/mysql/mysql.sock
+        
+

@@ -1,0 +1,8 @@
+- name: print
+  hosts: myhosts
+  tasks:
+
+    - name: print myhosts packages
+      debug:
+        msg: hello world
+

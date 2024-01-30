@@ -1,0 +1,8 @@
+---
+- name: create directory
+  hosts:  myhosts
+  tasks:
+    - name: create
+      file:
+        path: /home/client/akhila
+        state:  absent

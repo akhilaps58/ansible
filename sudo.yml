@@ -1,0 +1,11 @@
+---
+- name: Create user with sudo permission
+  hosts: myhosts
+  tasks:
+    - name: Create user
+      user:
+        name: akhila
+        commend: akhila
+        groups: wheel
+        append: yes  # Add the user to the specified groups without removing them from other groups
+

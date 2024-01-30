@@ -1,0 +1,17 @@
+---
+- name: Install and Configure Web Server (httpd) and MySQL Server
+  hosts: web:db
+  become: true
+
+  tasks:
+    - name: Install httpd and MySQL server
+      package:
+        name: httpd,mysql-server
+        state: present
+      when: "'web' in group_names"
+
+    - name: install MySQL service
+      yum:
+        name: mysql-server
+        state: present
+      

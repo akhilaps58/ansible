@@ -1,0 +1,10 @@
+---
+- name: Set password for a user
+  hosts: myhosts
+
+  tasks:
+    - name: Create user
+      user:
+        name: akhi
+        password: "{{ 'asd' | password_hash('sha512') }}"
+

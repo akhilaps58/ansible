@@ -1,0 +1,9 @@
+---
+- name: Install and configure Apache HTTP server
+  hosts: web
+  tasks:
+    - name: uninstall  HTTP server
+      yum:
+        name: httpd
+        state: absent
+

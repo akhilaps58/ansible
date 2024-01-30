@@ -1,0 +1,9 @@
+---
+- name: upgrade
+  hosts: myhosts
+  tasks:
+
+    - name: upgrade myhosts packages
+      yum:
+       name: '*'
+       state: latest

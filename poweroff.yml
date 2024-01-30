@@ -1,0 +1,7 @@
+---
+- name: poweroff
+  hosts: myhosts
+  tasks:
+    - name: poweroff
+      command: poweroff
+

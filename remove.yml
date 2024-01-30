@@ -1,0 +1,14 @@
+---
+- name: remove
+  hosts: myhosts
+  tasks: 
+    - name: remove
+      user:
+       name: akhila
+       state: absent
+       remove: yes
+    - name: remove
+      user:
+        name: akhi
+        state: absent
+        remove: yes 

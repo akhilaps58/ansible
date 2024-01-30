@@ -1,0 +1,30 @@
+---
+- name: Install and configure Apache HTTP server
+  hosts: web 
+  tasks:
+    - name: Install  HTTP server
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start httpd service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Download Apache configuration template
+      command: "wget https://www.free-css.com/assets/files/free-css-templates/download/page296/carvilla.zip"
+        
+     
+    - name: unzip
+      unarchive:
+        src: /root/carvilla.zip
+        dest: /var/www/html/
+        remote_src: true
+    - name: restart
+      service:
+        name: httpd
+        state: restarted
+
+     
